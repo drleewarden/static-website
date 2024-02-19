@@ -1,0 +1,15 @@
+.container-home {
+    .title {
+        position: absolute;
+        top: 0px;
+        padding: 30px;
+        font-size: 2rem;
+        color: black;
+        text-shadow: 0 3px #fdf9f9;
+    }
+}
+
+// specify 3 x to make !imortant
+.hero-content.hero-content.hero-content {
+    align-items: flex-start;
+}
