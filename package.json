@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "next build && next export",
+    "build-static": "next build && next export",
+    "export": "next export",
+    "lintjs": "eslint --ext .ts,.tsx,.js,.jsx src/ pages/"
   },
   "dependencies": {
     "@types/js-md5": "^0.7.2",
