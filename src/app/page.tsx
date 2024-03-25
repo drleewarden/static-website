@@ -10,7 +10,7 @@ import { AllRecords } from '.'
 
 export default function Home() {
   const RECORD_TYPE = process.env.NEXT_PUBLIC_APP_TYPE ?? ' '
-  const getRecord = (): AllRecords => RECORD_TYPE === 'recipes' ? RECIPES : COMPANIES
+  // const getRecord = (): AllRecords => RECORD_TYPE === 'recipes' ? RECIPES : COMPANIES
 
   const reset = () => {
     // setRecords(getRecord())
@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen w-100 flex-col items-center justify-between">
       <Heading classN="cm-container" />
-      <Jigsaw type={RECORD_TYPE && RECORD_TYPE} record={getRecord()} />
+      <Jigsaw type={RECORD_TYPE && RECORD_TYPE} record={COMPANIES} />
 
     </main>
   )

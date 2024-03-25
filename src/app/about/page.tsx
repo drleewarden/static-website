@@ -2,24 +2,24 @@
 import React from 'react'
 import { about } from '../services/about'
 import { MainTemplate } from '../modules/template'
-
+import Image from 'next/image'
 export default function About() {
     const list = (arr: string[]) => {
-        return arr?.map((item) => <span>{item},</span>)
+        return arr?.map((item, index) => <span key={index}>{item},</span>)
     }
     return (
         <MainTemplate>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src="/images/me.jpg" className="max-w-sm rounded-lg shadow-2xl" />
+                    <Image src="/images/me.jpg" alt="Picture of the darryn lee-warden" className="max-w-sm rounded-lg shadow-2xl" />
                     <div className="w-9/12 bg-gray-200 p-12 rounded shadow">
                         <h1 className="text-5xl font-bold">About</h1>
                         <p className="py-6 w-9/12 text-lg font-semibold ">My technical skills encompass an array of tools and frameworks, including:</p>
                         <ul>
                             {
-                                about.technical.map(item =>
+                                about.technical.map((item, index) =>
                                 (
-                                    <li className="p-2">
+                                    <li key={index} className="p-2">
                                         <strong>{item.title}: </strong>
                                         {item.skills && list(item.skills)}
                                         {/* {item.skills?.map(skill => <span>{skill},<span/>)} */}

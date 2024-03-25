@@ -29,15 +29,7 @@ export const Card: React.FC<ICard> = ({ cardObject, url }) => {
   //   })
   //   //setActiveCard(!activeCard);
   // }
-  const handlerOnChange = useCallback(
-    (changedState: IRecords) => {
-      debugger
-      setActiveWebsite(changedState)
-      changedState.name && goToPage(changedState.name)
-    },
-    [setActiveWebsite]
-  )
-  function goToPage(urlString: string): void {
+  const goToPage = useCallback((urlString: string): void => {
     const newUrl = url + '/' + hyphenateAndLowercase({
       text: urlString,
       hyphenate: true,
@@ -48,7 +40,17 @@ export const Card: React.FC<ICard> = ({ cardObject, url }) => {
     debugger
     router.push(newUrl, undefined)
 
-  }
+  }, [router, url])
+
+  const handlerOnChange = useCallback(
+    (changedState: IRecords) => {
+      debugger
+      setActiveWebsite(changedState)
+      changedState.name && goToPage(changedState.name)
+    },
+    [setActiveWebsite, goToPage]
+  )
+
   const image = (cardObject: IRecords) => {
     //${cardObject.image}
     //'food/image1.jpg'
@@ -71,7 +73,7 @@ export const Card: React.FC<ICard> = ({ cardObject, url }) => {
           <div className={styles.flipCardFront}>
             <Imag src={`images/${image(cardObject)}`} alt={'Picture of the  ' + cardObject?.name} />{' '}
           </div>
-          <div className={`${styles.flipCardBack} `} style={{ backgroundColor: cardObject.colour }}>
+          <div className={`${styles.flipCardBack} `} style={{ backgroundColor: cardObject.colour ?? '' }}>
             <Title className='text-2xl'>{cardObject?.name}</Title>
             {cardObject?.description && <Para>{description(cardObject?.description)}</Para>}
             <Button className="btn btn-neutral text-left">Learn More</Button>
