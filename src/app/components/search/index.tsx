@@ -18,7 +18,7 @@ const InputSelect: React.FC<IProps> = ({ inputSearchList, clear }) => {
     // check there are 3 characters before search
     if (val.length >= 3) {
       inputSearchList(val)
-      console.log(evt)
+      console.log('val:', val)
       // check there is a result
     } else {
       clear()

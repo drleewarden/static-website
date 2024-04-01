@@ -9,7 +9,7 @@ import { AllRecords } from '.'
 
 
 export default function Home() {
-  const RECORD_TYPE = process.env.NEXT_PUBLIC_APP_TYPE ?? ' '
+  const RECORD_TYPE = process.env.NEXT_PUBLIC_APP_TYPE ?? 'website'
   // const getRecord = (): AllRecords => RECORD_TYPE === 'recipes' ? RECIPES : COMPANIES
 
   const reset = () => {
@@ -19,15 +19,16 @@ export default function Home() {
 
 
 
-  const searchResults = (inputText: string) => {
+  const searchResults = (inputText: any) => {
     // const char = filterArr(COMPANIES, inputText)
     // console.log('char:', char)
     // setRecords(char)
   }
 
-  const searchCallback = useCallback((val: string) => {
-    searchResults(val)
-  }, [searchResults])
+  // const searchCallback = useCallback((val: any) => {
+  //   // searchResults(val)
+  //   console.log('val:',val)
+  // }, [])
 
   return (
     <main className="flex min-h-screen w-100 flex-col items-center justify-between">

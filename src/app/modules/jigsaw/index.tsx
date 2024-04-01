@@ -1,6 +1,6 @@
 "use client"
 import React, { ReactNode } from 'react'
-
+import Image from 'next/image'
 import { Card } from '../../components/card'
 import styles from '../../styles/Home.module.scss'
 import { IRecipes, IRecords } from '@/app/'
@@ -50,7 +50,7 @@ export const Jigsaw: React.FC<IProps> = ({ type, record }) => {
               return <Card key={index} url={'website'} cardObject={job} ind={index} />
             })) : (
             <div style={{ position: 'relative' }}>
-              {record.length === 1 && record[0].image && record[0]?.name && <img src={`images/${record[0].image}`} style={{ position: 'initial' }} alt={'Picture of the  ' + record[0]?.name} />}
+              {record.length === 1 && record[0].image && record[0]?.name && <Image src={`images/${record[0].image}`} style={{ position: 'initial' }} alt={'Picture of the  ' + record[0]?.name} />}
               <div className="title" style={{ position: 'absolute', top: '0' }}>hello world</div>
             </div>
           )}

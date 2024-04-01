@@ -5,9 +5,10 @@ import { COMPANIES } from '../../services/allPlacesWorked'
 import { IRecipes, IRecords } from '@/app/'
 
 import { Title } from './styles'
-import { userStore } from '../../context/providers'
+import { UserStore } from '../../context/providers'
 import Nav from '../nav'
 import styles from './Heading.module.scss'
+import { websiteStore } from '@/app/store/websites.store'
 
 interface IJobs {
   dates: string
@@ -20,14 +21,14 @@ interface IJobs {
 }
 
 interface IProps {
-  // searchCallback(val: string): void
+  searchCallback?: (e:any) => {}
   children?: ReactNode
   classN?: string
   reset?: () => void
 }
 
-export const Heading: React.FC<IProps> = ({ classN }: IProps) => {
-  const { fullName } = userStore()
+export const Heading: React.FC<IProps> = ({searchCallback, classN }: IProps) => {
+  const { fullName } = UserStore()
   const [jobs, setJobs] = useState<IRecords[]>(COMPANIES)
   const [openDropdown, setOpenDropdown] = useState<boolean>(false)
   const dropdownAction = () => {
@@ -36,9 +37,9 @@ export const Heading: React.FC<IProps> = ({ classN }: IProps) => {
   const filterArr = (arr: IRecords[], text: string) => {
     return arr.filter((item) => item.name && item.name.toLowerCase().includes(text))
   }
-  const searchCallback = useCallback((val: string) => {
-    // searchResults(val)
-  }, [])
+  // const searchCallback = useCallback((val: string) => {
+  //   // searchResults(val)
+  // }, [])
   const clear = () => {
     // setJobs(allActiveCards);
   }
@@ -46,8 +47,19 @@ export const Heading: React.FC<IProps> = ({ classN }: IProps) => {
 
     const char = filterArr(jobs, inputText)
     setJobs(char)
-    searchCallback(inputText)
+    // searchCallback(inputText)
   }
+  const { setActiveWebsite } = websiteStore((state) => ({
+    setActiveWebsite: state.setActiveWebsite
+  }))
+  const handlerOnChange = useCallback(
+    (changedState: IRecords) => {
+      debugger
+      setActiveWebsite(changedState)
+    },
+    [setActiveWebsite]
+  )
+
   return (
     <div className="w-full">
       <div className={styles.heading + ' ' + classN}>
@@ -59,7 +71,7 @@ export const Heading: React.FC<IProps> = ({ classN }: IProps) => {
           }}
         />
         <InputSelect inputSearchList={searchResults} clear={clear} />
-        <button onClick={() => alert('sdfds')}>reset</button>
+        <button onClick={()=>{}}>reset</button>
       </div>
       <hr className={`${styles.hr} drop-shadow-xl`} />
       {openDropdown && (
