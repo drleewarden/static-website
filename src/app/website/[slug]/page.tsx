@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import React from 'react'
 import { COMPANIES } from '../../services/allPlacesWorked'
 
@@ -7,7 +7,21 @@ import { hyphenateAndLowercase } from '@/app/utils'
 import { IRecords } from '@/app/'
 import Link from 'next/link'
 
-
+// Return a list of `params` to populate the [slug] dynamic segment
+// export async function generateStaticParams() {
+//    return COMPANIES.map(site => {
+//    const arr = {slug: hyphenateAndLowercase({
+//         text: site.name !== null ? site.name : '',
+//         hyphenate: true,
+//         lowercase: true,
+//         punctuation: true,
+//       })}
+//       console.log(arr)
+//       return arr
+//     })
+    
+//   }
+ 
 const Websites = ({ params }: { params: { slug: string } }) => {
 
     const { selectedWebsite } = websiteStore((state) => ({
