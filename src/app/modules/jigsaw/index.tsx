@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { Card } from '../../components/card'
 import styles from '../../styles/Home.module.scss'
 import { IRecipes, IRecords } from '@/app/'
+import { singleImage } from './styles'
+// import { style } from './jigsaw.module.scss'
 
 const RECIPE = 'recipe'
 const WEB = 'website'
@@ -17,17 +19,6 @@ interface IProps {
 }
 
 export const Jigsaw: React.FC<IProps> = ({ type, record }) => {
-
-
-  // const [allActiveCards, setAllActiveCards] = useState<boolean[]>([])
-  // const [activeCard, setActiveCard] = useState(false)
-
-
-  const filterArr = (arr: IRecords[], text: string) => {
-    const results = arr.filter((item) => item.name && item.name.toLowerCase().includes(text.toLowerCase()))
-    return results
-  }
-
 
   return (
     <div className={styles.grid + ' w-full container-home'}>
@@ -50,8 +41,12 @@ export const Jigsaw: React.FC<IProps> = ({ type, record }) => {
               return <Card key={index} url={'website'} cardObject={job} ind={index} />
             })) : (
             <div style={{ position: 'relative' }}>
-              {record.length === 1 && record[0].image && record[0]?.name && <Image src={`images/${record[0].image}`} style={{ position: 'initial' }} alt={'Picture of the  ' + record[0]?.name} />}
-              <div className="title" style={{ position: 'absolute', top: '0' }}>hello world</div>
+              {record.length === 1 && record[0].image && record[0]?.name && <img src={`images/${record[0].image}`} style={{ position: 'initial' }} alt={'Picture of the  ' + record[0]?.name} />}
+              <div className="title singleImage" >
+                <h2>1 result found</h2>
+                <p>{record[0]?.name}</p>
+                <p>find out more </p>
+              </div>
             </div>
           )}
         </div>

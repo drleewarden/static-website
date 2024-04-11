@@ -12,7 +12,7 @@ export interface IProps {
 const Nav: React.FC<IProps> = ({ onClick }) => {
   return (
     <div className={styles.container}>
-      <nav className="ml-4 pt-8">
+      <nav className="ml-12 pt-8">
         <ul className="flex">
           <li className="mr-6">
             <Link href="/" className={styles.nav__item}>

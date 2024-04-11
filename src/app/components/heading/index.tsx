@@ -4,11 +4,12 @@ import InputSelect from '../search'
 import { COMPANIES } from '../../services/allPlacesWorked'
 import { IRecipes, IRecords } from '@/app/'
 
-import { Title } from './styles'
+import { TileContainer, Title } from './styles'
 import { UserStore } from '../../context/providers'
 import Nav from '../nav'
 import styles from './Heading.module.scss'
 import { websiteStore } from '@/app/store/websites.store'
+import { Button } from './styles'
 
 interface IJobs {
   dates: string
@@ -31,6 +32,10 @@ export const Heading: React.FC<IProps> = ({searchCallback, classN }: IProps) => 
   const { fullName } = UserStore()
   const [jobs, setJobs] = useState<IRecords[]>(COMPANIES)
   const [openDropdown, setOpenDropdown] = useState<boolean>(false)
+  const { setActiveWebsite , setActiveList} = websiteStore((state) => ({
+    setActiveWebsite: state.setActiveWebsite,
+    setActiveList: state.setActiveList
+  }))
   const dropdownAction = () => {
     setOpenDropdown(!openDropdown)
   }
@@ -41,7 +46,7 @@ export const Heading: React.FC<IProps> = ({searchCallback, classN }: IProps) => 
   //   // searchResults(val)
   // }, [])
   const clear = () => {
-    // setJobs(allActiveCards);
+    setActiveList(COMPANIES);
   }
   const searchResults = (inputText: string) => {
 
@@ -49,9 +54,7 @@ export const Heading: React.FC<IProps> = ({searchCallback, classN }: IProps) => 
     setJobs(char)
     // searchCallback(inputText)
   }
-  const { setActiveWebsite } = websiteStore((state) => ({
-    setActiveWebsite: state.setActiveWebsite
-  }))
+  
   const handlerOnChange = useCallback(
     (changedState: IRecords) => {
       debugger
@@ -62,16 +65,18 @@ export const Heading: React.FC<IProps> = ({searchCallback, classN }: IProps) => 
 
   return (
     <div className="w-full">
-      <div className={styles.heading + ' ' + classN}>
-        <Title className={'w-full ' + styles.hero__heading}>Creative Milk</Title>
-        <div className="w-full ml-6 pl-6">{fullName}</div>
+        <div className={styles.heading + ' flex ' + classN}>
+        <TileContainer>
+          <Title className={'w-full text-xl ' + styles.hero__heading}>Creative Milk</Title>
+          <div className="w-full ml-2 pl-6">{fullName}</div> 
+        </TileContainer>
         <Nav
           onClick={() => {
             return dropdownAction()
           }}
         />
         <InputSelect inputSearchList={searchResults} clear={clear} />
-        <button onClick={()=>{}}>reset</button>
+        <Button className="btn btn-neutral ml-4 text-left" onClick={clear}>reset</Button>
       </div>
       <hr className={`${styles.hr} drop-shadow-xl`} />
       {openDropdown && (
