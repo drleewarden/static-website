@@ -1,10 +1,10 @@
 "use client"
 import React, { ReactNode } from 'react'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { Card } from '../../components/card'
 import styles from '../../styles/Home.module.scss'
 import { IRecipes, IRecords } from '@/app/'
-import { singleImage } from './styles'
+// import { singleImage } from './styles'
 // import { style } from './jigsaw.module.scss'
 
 const RECIPE = 'recipe'
