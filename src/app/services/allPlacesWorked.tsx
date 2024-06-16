@@ -4,6 +4,7 @@ export const COMPANIES: IRecords[] = [
   {
     dates: '02.2021 - 11.2021',
     name: 'BOM',
+    id:'bom',
     website: 'https://mdbwip.bom.gov.au/murray-darling-basin/',
     position: 'Tech Lead Frontend Developer on MDBWIP.',
     description: `Primarily worked on the Murray Darling Basin Water Project.
@@ -13,6 +14,7 @@ export const COMPANIES: IRecords[] = [
     colour: 'pink',
   },
   {
+    id: 'agl',
     dates: '06.2020 - 12.2020',
     name: 'AGL',
     website: 'https://www.agl.com.au/',
@@ -23,7 +25,7 @@ export const COMPANIES: IRecords[] = [
     image: 'agl-cover.jpg',
     colour: '#ff008d',
   },
-  {
+  { id:'australian-unity',
     dates: '11.2019 - 04.2020',
     name: 'Australian Unity',
     website: 'https://www.australianunity.com.au/',
@@ -34,7 +36,7 @@ export const COMPANIES: IRecords[] = [
     image: 'aus-unity-cover.jpg',
     colour: '#16814a',
   },
-  {
+  { id: 'akqa',
     dates: '06.2019 - 11.2019',
     name: 'AKQA',
     website: 'https://www.akqa.com/',
@@ -46,7 +48,7 @@ export const COMPANIES: IRecords[] = [
     image: 'akqa-cover.jpg',
     colour: '#00d468',
   },
-  {
+  { id:'myer',
     dates: '10.2016 – 2018',
     name: 'MYER',
     website: 'https://www.myer.com.au/',
@@ -62,6 +64,7 @@ export const COMPANIES: IRecords[] = [
     colour: '#00ff1f',
   },
   {
+    id:'immersive',
     dates: '2014 - 11.2016',
     name: 'Immersive',
     website: null,
@@ -77,6 +80,7 @@ export const COMPANIES: IRecords[] = [
     colour: '#ff8100',
   },
   {
+    id:'aia',
     dates: ' 01.2018– 06.2019 (1.5 years)',
     name: 'AIA',
     website: 'https://www.aia.com.au/',
@@ -92,6 +96,7 @@ export const COMPANIES: IRecords[] = [
     colour: '#ff8100',
   },
   {
+    id:'fcv',
     dates: ' 6.2013 - 6.2014 (12-months)',
     name: 'FCV',
     website: null,
@@ -110,6 +115,7 @@ export const COMPANIES: IRecords[] = [
     colour: '#ff8100',
   },
   {
+    id:'citrus',
     dates: '11.2012 - 4.2013 (6-months) ',
     name: 'Citrus',
     website: null,

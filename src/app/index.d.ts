@@ -1,6 +1,7 @@
 
 export interface IRecords {
     dates: string | null
+    id:string | null
     website: string | null
     technical: string[] | null
     name: string | null

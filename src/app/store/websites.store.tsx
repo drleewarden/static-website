@@ -9,6 +9,7 @@ interface WebsiteStore {
 }
 export const websiteStore = create<WebsiteStore>((set) => ({
     selectedWebsite: {
+        id:null,
         name: null,
         website: null,
         description: null,
