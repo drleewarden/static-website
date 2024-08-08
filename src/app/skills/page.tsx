@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import { COMPANIES } from '../services/allPlacesWorked'
+import { MainTemplate } from '../modules/template'
 
 const Skills = () => {
   const skills = (): string[] => {
@@ -22,12 +23,14 @@ const Skills = () => {
   }
 
   return (
-    <div className="p-8">
-      <h1 className="text-5xl font-mono">Skills:</h1>
-      <div className="flex font-mono w-3/4 flex-wrap">
-        {skills().map((item, index) => row(item, index))}
+    <MainTemplate>
+      <div className="p-8">
+        <h1 className="text-5xl font-mono">Skills:</h1>
+        <div className="flex font-mono w-3/4 flex-wrap">
+          {skills().map((item, index) => row(item, index))}
+        </div>
       </div>
-    </div>
+    </MainTemplate>
   )
 }
 

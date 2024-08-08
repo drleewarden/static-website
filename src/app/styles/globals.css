@@ -22,3 +22,8 @@ body {
       transparent,
       rgb(var(--background-end-rgb)))
 }
+ol, ul, menu {
+  list-style: upper-roman;
+  margin: 2rem;
+  padding: 1rem;
+}
